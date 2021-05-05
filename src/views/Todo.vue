@@ -24,7 +24,8 @@
         >
           <template v-slot:default>
             <v-list-item-action>
-              <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
+              <v-checkbox :input-value="task.done" color="primary">
+              </v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
@@ -36,7 +37,9 @@
             </v-list-item-content>
 
             <v-list-item-action>
-              <v-btn @click.stop="deleteTask(task.id)" icon>
+              <v-btn @click.stop="$store.commit('deleteTask', task.id)"
+                icon
+              >
                 <v-icon color="primary lighten-1">mdi-delete</v-icon>
               </v-btn>
             </v-list-item-action>
@@ -72,9 +75,6 @@ export default {
     addTask() {
       this.$store.commit('addTask', this.newTaskTitle);
       this.newTaskTitle = '';
-    },
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => task.id !== id);
     },
   },
 };
