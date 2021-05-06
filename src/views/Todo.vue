@@ -9,8 +9,8 @@
       label="Add Task"
       append-icon="mdi-plus"
       hide-details
-      clearable 
-    ></v-text-field>
+      clearable
+      ></v-text-field>
 
     <v-list
       v-if="$store.state.tasks.length"
