@@ -2,7 +2,9 @@
   <div class="home">
     <field-add-task />
 
-    <list-tasks v-if="$store.state.tasks.length" />
+    <list-tasks
+      v-if="$store.state.tasks.length"
+    />
     <div
       v-else
       class="no-tasks"
