@@ -18,6 +18,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="sass">
+  .no-tasks
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    opacity: 0.5
 </style>
