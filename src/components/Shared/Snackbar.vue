@@ -9,7 +9,7 @@
         color="red"
         text
         v-bind="attrs"
-        @click="snackbar = false"
+        @click="$store.commit('closeSnackbar')"
       >
         Close
       </v-btn>

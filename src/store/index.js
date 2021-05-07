@@ -34,6 +34,7 @@ export default new Vuex.Store({
         done: false
       };
       state.tasks.push(newTask);
+      state.snackbar.show = true;
     },
     doneTask(state, id) {
       let task = state.tasks.filter((task) => task.id === id)[0];
@@ -42,8 +43,18 @@ export default new Vuex.Store({
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
+    showSnackbar(state) {
+      state.snackbar.show = true;
+    },
+    closeSnackbar(state) {
+      state.snackbar.show = false;
+    }
   },
   actions: {
+    addTask({ commit }, newTaskTitle) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackbar')
+    }
   },
   getters: {
   }
