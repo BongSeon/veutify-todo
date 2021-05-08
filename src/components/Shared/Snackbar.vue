@@ -6,10 +6,9 @@
 
     <template v-slot:action="{ attrs }">
       <v-btn
-        color="red"
+        @click="$store.commit('hideSnackbar')"
         text
         v-bind="attrs"
-        @click="$store.commit('closeSnackbar')"
       >
         Close
       </v-btn>

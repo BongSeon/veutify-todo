@@ -55,7 +55,7 @@ export default new Vuex.Store({
         state.snackbar.show = true
       }, timeout);
     },
-    closeSnackbar(state) {
+    hideSnackbar(state) {
       state.snackbar.show = false
     }
   },
