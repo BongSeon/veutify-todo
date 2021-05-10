@@ -18,7 +18,7 @@
       <v-list-item
         v-for="(item, index) in items"
         :key="index"
-        @click="item.click"
+        @click="handleClick(index)"
       >
         <v-list-item-icon>
           <v-icon v-text="item.icon"></v-icon>
@@ -56,6 +56,11 @@ export default {
       },
     ],
   }),
+  methods:{
+    handleClick(index) {
+      this.items[index].click();
+    }
+  }
 }
 </script>
 
