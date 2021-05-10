@@ -34,18 +34,19 @@ export default new Vuex.Store({
         title: newTaskTitle,
         done: false
       };
-      state.tasks.push(newTask);
-      state.snackbar.show = true;
+      state.tasks.push(newTask)
+      state.snackbar.show = true
     },
     doneTask(state, id) {
-      let task = state.tasks.filter((task) => task.id === id)[0];
-      task.done = !task.done;
+      let task = state.tasks.filter((task) => task.id === id)[0]
+      task.done = !task.done
     },
     deleteTask(state, id) {
-      state.tasks = state.tasks.filter((task) => task.id !== id);
+      state.tasks = state.tasks.filter((task) => task.id !== id)
     },
     updateTaskTitle(state, payload) {
-      console.log('payload:', payload)
+      let task = state.tasks.filter((task) => task.id === payload.id)[0]
+      task.title = payload.title
     },
     showSnackbar(state, text) {
       let timeout = 0
@@ -56,7 +57,7 @@ export default new Vuex.Store({
       setTimeout(() => {
         state.snackbar.text = text
         state.snackbar.show = true
-      }, timeout);
+      }, timeout)
     },
     hideSnackbar(state) {
       state.snackbar.show = false
