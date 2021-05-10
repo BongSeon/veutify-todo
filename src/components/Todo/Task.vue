@@ -18,34 +18,18 @@
         </v-list-item-content>
 
         <v-list-item-action>
-          <task-menu />
+          <task-menu :task="task" />
         </v-list-item-action>
       </template>
     </v-list-item>
     <v-divider></v-divider>
-
-    <dialog-delete
-      v-if="dialogs.delete"
-      @close="dialogs.delete = false"
-      :task="task"
-    />
-
   </div>
 </template>
 
 <script>
-import DialogDelete from './Dialogs/DialogDelete.vue'
 export default {
   props: ['task'],
-  data() {
-    return {
-      dialogs: {
-        delete: false
-      }
-    }
-  },
   components: {
-    DialogDelete,
     'task-menu': require('@/components/Todo/TaskMenu.vue').default,
   },
 }
