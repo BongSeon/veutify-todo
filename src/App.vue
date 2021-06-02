@@ -47,19 +47,18 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-container class="pa-0 mt-2">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search />
+        </v-row>
+        <v-row class="ml-1">
+          <v-app-bar-title>Vuetify Todo</v-app-bar-title>
+        </v-row>
+      </v-container>
 
-      <v-app-bar-title>Vuetify Todo</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <search></search>
     </v-app-bar>
-    <!-- <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
 
     <v-main>
       <router-view></router-view>
