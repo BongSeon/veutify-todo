@@ -1,6 +1,9 @@
 <template>
   <v-text-field
-    class="expanding-search mt-1 closed"
+    @focus="searchClosed = false"
+    @blur="searchClosed = true"
+    class="expanding-search mt-1"
+    :class="{ 'closed' : searchClosed }"
     placeholder="Filled"
     prepend-inner-icon="mdi-magnify"
     filled
@@ -12,7 +15,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      searchClosed: true
+    }
+  }
 }
 </script>
 
