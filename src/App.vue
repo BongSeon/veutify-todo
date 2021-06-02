@@ -54,10 +54,6 @@
       <v-spacer></v-spacer>
 
       <search></search>
-      
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
     </v-app-bar>
     <!-- <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
