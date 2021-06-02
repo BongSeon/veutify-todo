@@ -1,30 +1,21 @@
 <template>
-  <v-dialog
-    :value="true"
-    persistent
-    max-width="290"
-  >
+  <v-dialog :value="true" persistent max-width="290">
     <v-card>
       <v-card-title class="headline">
         Edit Task
       </v-card-title>
       <v-card-text>
         Edit the title of this task:
-        <v-text-field
-          v-model="taskTitle"
-          @keyup.enter="saveTask"
-        />
+        <v-text-field v-model="taskTitle" @keyup.enter="saveTask" />
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn
-          @click="$emit('close')"
-          text
-        >
+        <v-btn @click="$emit('close')" text>
           Cancel
         </v-btn>
         <v-btn
           @click="saveTask"
+          :disabled="taskTitleInvalid"
           color="red darken-1"
           text
         >
@@ -37,28 +28,34 @@
 
 <script>
 export default {
-  props: ['task'],
+  props: ["task"],
   data() {
     return {
-      taskTitle: null
-    }
+      taskTitle: null,
+    };
+  },
+  computed: {
+    taskTitleInvalid() {
+      return !this.taskTitle || this.taskTitle === this.task.title;
+    },
   },
   methods: {
     saveTask() {
+      if (this.taskTitleInvalid) {
+        return;
+      }
       let payload = {
         id: this.task.id,
-        title: this.taskTitle
-      }
-      this.$store.commit('updateTaskTitle', payload)
-      this.$emit('close')
-    }
+        title: this.taskTitle,
+      };
+      this.$store.commit("updateTaskTitle", payload);
+      this.$emit("close");
+    },
   },
   mounted() {
-    this.taskTitle = this.task.title
-  }
-}
+    this.taskTitle = this.task.title;
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
