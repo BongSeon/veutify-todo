@@ -10,16 +10,19 @@ export default new Vuex.Store({
         id: 1,
         title: "Wake up",
         done: false,
+        dueDate: '2021-06-03'
       },
       {
         id: 2,
         title: "Get bananas",
         done: false,
+        dueDate: '2021-06-04'
       },
       {
         id: 3,
         title: "Eats bananas",
         done: false,
+        dueDate: null
       },
     ],
     snackbar: {
@@ -32,7 +35,8 @@ export default new Vuex.Store({
       let newTask = {
         id: Date.now(),
         title: newTaskTitle,
-        done: false
+        done: false,
+        dueDate: null
       };
       state.tasks.push(newTask)
       state.snackbar.show = true
@@ -60,7 +64,8 @@ export default new Vuex.Store({
       }, timeout)
     },
     hideSnackbar(state) {
-      state.snackbar.show = false
+      state.snackbar.show = fals
+      e
     }
   },
   actions: {
