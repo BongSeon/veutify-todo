@@ -64,8 +64,7 @@ export default new Vuex.Store({
       }, timeout)
     },
     hideSnackbar(state) {
-      state.snackbar.show = fals
-      e
+      state.snackbar.show = false
     }
   },
   actions: {
