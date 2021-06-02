@@ -19,10 +19,11 @@
         Cancel
       </v-btn>
       <v-btn
+        @click="saveTask"
         text
         color="primary"
       >
-        OK
+        Save
       </v-btn>
     </v-date-picker>
   </v-dialog>
@@ -39,6 +40,16 @@ export default {
   mounted() {
     if (this.task.dueDate) {
       this.date = this.task.dueDate
+    }
+  },
+  methods: {
+    saveTask() {
+      let payload = {
+        id: this.task.id,
+        dueDate: this.date
+      }
+      this.$store.dispatch('updateTaskDueDate', payload)
+      this.$emit("close")
     }
   }
 }
