@@ -99,7 +99,7 @@ export default new Vuex.Store({
         return state.tasks
       }
       return state.tasks.filter(task => 
-        task.title.includes(state.search)
+        task.title.toLowerCase().includes(state.search.toLowerCase())
       )
     }
   }
