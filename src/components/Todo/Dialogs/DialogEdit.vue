@@ -1,5 +1,9 @@
 <template>
-  <v-dialog :value="true" persistent max-width="290">
+  <v-dialog
+    :value="true"
+    max-width="290"
+    persistent
+  >
     <v-card>
       <v-card-title class="headline">
         Edit Task
